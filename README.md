@@ -1,4 +1,4 @@
-# typesafe-get [![Travis Build Status](https://img.shields.io/travis/pimterry/typesafe-get.svg)](https://travis-ci.org/pimterry/typesafe-get) [![Uses TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-blue.svg)](http://typescriptlang.org)
+# Typesafe get
 
 A typesafe way to get nested properties when any parent properties might be undefined, while we wait for the [optional chaining operator](https://tc39.github.io/proposal-optional-chaining/) to finally exist.
 
@@ -9,29 +9,17 @@ let input: { a: { b?: { c: null | { d: string } } } } | undefined = ...;
 let result: string | undefined = get(input, 'a', 'b', 'c', 'd');
 ```
 
-All parameters are validated as properties at the relevant level, and
-the return type will always be `finalPropType | undefined` (the type of the property
-at the very last level, or undefined).
+All parameters are validated as properties at the relevant level, and the return type will always be `finalPropType | undefined` (the type of the property at the very last level, or undefined).
 
-If at any point while following the chain you attempt to follow a path through an
-undefined object then undefined is immediately returned, and you'll never see the dreaded
-`Cannot read property '<something>' of undefined` exception. It works with simple iteration
-over the property names provided, no crazy (and expensive) try/catch magic here.
+If at any point while following the chain you attempt to follow a path through an undefined object then undefined is immediately returned, and you'll never see the dreaded `Cannot read property '<something>' of undefined` exception. It works with simple iteration over the property names provided, no crazy (and expensive) try/catch magic here.
 
-## Install it
+### Using
 
-```
-npm install --save typesafe-get
+```bash
+yarn add ovotech/typesafe-get
 ```
 
-## Use it
-
-This module ships with TypeScript types, and is built in JS for UMD, so you should
-be able to immediately start using it in any environment with no further setup.
-
-The `get` function is exported as both a property and the default export of this module.
-
-That means importing looks like:
+This module ships with TypeScript types, so you should be able to immediately start using it in any environment with no further setup.
 
 ```ts
 import { get } from 'typesafe-get';
@@ -52,24 +40,45 @@ get(obj, 'key1', 'key2');
 get(obj, 'key1', 'key2', 'key3', 'key4', 'key5');
 ```
 
-Each parameter name is checked against the valid parameter names at that level (so a parameter
-name that definitely doesn't exist will be caught by TS).
+Each parameter name is checked against the valid parameter names at that level (so a parameter name that definitely doesn't exist will be caught by TS).
 
-The return type will be automatically inferred as the type the final parameter would have,
-if the whole chain is defined, or `undefined`.
-
-`get` itself supports up to 5 property parameters max. If you really truly honestly need more than that,
-take a good hard look at yourself, and then feel free to open a PR - it should be fairly easy to see
-how to extend the types to support more. But only if you're _really_ sure you need this. Seriously,
-what are you doing that makes this a good idea.
+The return type will be automatically inferred as the type the final parameter would have, if the whole chain is defined, or `undefined`.
 
 `get` does _not_ support array indexes, only string-indexed object properties. This is a
-typing limitation (the runtime implementation can actually handle this). I'd like to look at improving that
-in future, but I haven't yet. Feel free to open a PR!
+typing limitation (the runtime implementation can actually handle this).
+
+## Running the tests
+
+```bash
+yarn test
+```
+
+### Coding style (linting, etc) tests
+
+Style is maintained with prettier and tslint
+
+```
+yarn lint
+```
+
+## Deployment
+
+To deploy a new version, push to master and then create a new release. CircleCI will automatically build and deploy a the version to the npm registry.
 
 ## Contributing
 
 Have a bug? File an issue with a simple example that reproduces this so we can take a look & confirm.
 
-Want to make a change? Submit a PR, explain why it's useful, and make sure you've updated the docs
-(this file) and the tests (see `test.ts`). You can run the tests with `npm test`.
+Want to make a change? Submit a PR, explain why it's useful, and make sure you've updated the docs (this file) and the tests (see `test/index.spec.ts`). You can run the tests with `yarn test`.
+
+## Responsible Team
+
+- Boost Internal Tools (BIT)
+
+## License
+
+This project is licensed under the MIT - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+- Forked from: [pimterry/typesafe-get](https://github.com/pimterry/typesafe-get)

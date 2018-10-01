@@ -1,48 +1,46 @@
 {
-  "name": "typesafe-get",
-  "version": "2.0.1",
+  "name": "@ovotech/re-mixpanel",
   "description": "A typesafe way to get nested properties when any parent property might be undefined, while we wait for the optional chaining operator to finally exist",
-  "main": "index.js",
-  "types": "index.ts",
-  "files": [
-    "index.js",
-    "index.js.map",
-    "index.ts"
-  ],
-  "scripts": {
-    "test": "mocha -r ts-node/register test.ts",
-    "prepublishOnly": "tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pimterry/typesafe-get.git"
-  },
-  "keywords": [
-    "typescript",
-    "typesafe",
-    "get",
-    "optional",
-    "chaining",
-    "optional chaining",
-    "lookup",
-    "property",
-    "undefined",
-    "null",
-    "safe"
-  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "source": "src/index.ts",
+  "types": "dist/types/index.d.ts",
+  "repository": "git@github.com:ovotech/re-mixpanel.git",
   "author": "Tim Perry <pimterry@gmail.com>",
+  "contributors": [
+    "Ivan Kerin <ikerin@gmail.com>"
+  ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/pimterry/typesafe-get/issues"
+  "scripts": {
+    "test": "jest",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "build-cjs": "tsc --outDir dist/cjs/",
+    "build-es": "tsc --outDir dist/es/ --module esnext --declaration --declarationDir dist/types/",
+    "build": "yarn build-cjs && yarn build-es"
   },
-  "homepage": "https://github.com/pimterry/typesafe-get#readme",
   "devDependencies": {
-    "@types/chai": "^4.1.2",
-    "@types/mocha": "^2.2.48",
-    "chai": "^4.1.2",
-    "mocha": "^5.0.1",
-    "ts-node": "^7.0.0",
-    "typescript": "^2.9.2"
+    "@types/jest": "^22.2.3",
+    "jest": "^22.4.3",
+    "jest-junit": "^3.6.0",
+    "prettier": "^1.12.0",
+    "ts-jest": "^23.6.0",
+    "tslint": "^5.9.1",
+    "typescript": "^2.8.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "testURL": "http://localhost/"
   },
   "dependencies": {}
 }

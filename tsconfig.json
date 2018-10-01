@@ -1,16 +1,10 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "module": "umd",
-        "outDir": ".",
-        "declaration": false,
-        "sourceMap": true,
-        "strict": true
-    },
-    "compileOnSave": true,
-    "buildOnSave": true,
-    "files": [
-        "index.ts",
-        "test.ts"
-    ]
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "sourceMap": true,
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
