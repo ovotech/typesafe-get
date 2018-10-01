@@ -16,7 +16,7 @@ If at any point while following the chain you attempt to follow a path through a
 ### Using
 
 ```bash
-yarn add ovotech/typesafe-get
+yarn add @ovotech/typesafe-get
 ```
 
 This module ships with TypeScript types, so you should be able to immediately start using it in any environment with no further setup.
