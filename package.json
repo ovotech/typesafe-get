@@ -1,11 +1,11 @@
 {
-  "name": "@ovotech/re-mixpanel",
+  "name": "@ovotech/typesafe-get",
   "description": "A typesafe way to get nested properties when any parent property might be undefined, while we wait for the optional chaining operator to finally exist",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "source": "src/index.ts",
   "types": "dist/types/index.d.ts",
-  "repository": "git@github.com:ovotech/re-mixpanel.git",
+  "repository": "git@github.com:ovotech/typesafe-get.git",
   "author": "Tim Perry <pimterry@gmail.com>",
   "contributors": [
     "Ivan Kerin <ikerin@gmail.com>"
