@@ -23,13 +23,7 @@ This module ships with TypeScript types, so you should be able to immediately st
 
 ```ts
 import { get } from 'typesafe-get';
-// or
-import get from 'typesafe-get';
-```
 
-To use `get`:
-
-```ts
 // Equivalent to obj.aPropertyKey
 get(obj, 'aPropertyKey');
 
