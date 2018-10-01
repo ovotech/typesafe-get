@@ -71,7 +71,7 @@ Want to make a change? Submit a PR, explain why it's useful, and make sure you'v
 
 ## License
 
-This project is licensed under the MIT - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT - see the [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
 
